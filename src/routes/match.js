@@ -1,8 +1,10 @@
 const express = require("express");
-const { createMatch } = require("../controller/match");
+const { createMatch, fetchMatches } = require("../controller/match");
+const authenticate = require("../middleware/authentication");
 
 const router = express.Router();
 
-router.post("/create",createMatch);
+router.post("/create",authenticate,createMatch);
+router.get("/fetch",authenticate,fetchMatches);
 
 module.exports=router;

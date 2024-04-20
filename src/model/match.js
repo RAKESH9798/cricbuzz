@@ -18,7 +18,7 @@ const isMatchTableExist = "SELECT EXISTS (" +
 
 const insertMatchQuery = "INSERT INTO matches (team1, team2, date, venue) VALUES ($1, $2, $3, $4)";
 
-const selectMatchQuery = "SELECT * FROM matches WHERE team1=$1 AND team2=$2";
+const selectMatchQuery = "SELECT * FROM matches";
 
 module.exports={isMatchTableExist,createMatchQuery,insertMatchQuery,selectMatchQuery};
 

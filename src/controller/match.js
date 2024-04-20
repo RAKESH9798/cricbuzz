@@ -22,4 +22,13 @@ const createMatch = async (req, res) => {
     }
 }
 
-module.exports = { createMatch };
+const fetchMatches = async (req, res) => {
+    try {
+        const fetched = await db.query(match.selectMatchQuery);
+        res.status(200).json({ message: "Matches Found", matches: fetched.rows });
+    } catch (error) {
+        res.status(401).json({ error: "Error occurred during fetching the matches", message: error.message });
+    }
+};
+
+module.exports = { createMatch, fetchMatches };
