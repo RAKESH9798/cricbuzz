@@ -1,0 +1,11 @@
+const express = require("express");
+
+const app = express();
+app.use(express.json());
+
+const user= require("./src/routes/user");
+app.use("/api/user",user);
+
+app.listen(4420,()=>{
+    console.log("CrickBuzz API is running on port 4420.");
+})
